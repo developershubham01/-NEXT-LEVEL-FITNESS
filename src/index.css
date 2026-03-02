@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+:root {
+  background-color: #000000;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* ================= BASE LAYER ================= */
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  .font-outfit {
+    font-family: 'Outfit', sans-serif;
+  }
+}
+
+/* ================= COMPONENTS LAYER ================= */
+@layer components {
+
+  /* Glass Card */
+  .glass {
+    @apply bg-white/5 backdrop-blur-lg border border-white/10;
+  }
+
+  /* Neon Button */
+  .btn-neon {
+    @apply px-8 py-3 bg-accent-neon text-black font-bold 
+           rounded-full transition-all duration-300 
+           hover:scale-105 active:scale-95;
+  }
+
+  /* Custom neon glow (cannot use in @apply) */
+  .btn-neon:hover {
+    box-shadow: 0 0 20px rgba(57, 255, 20, 0.6);
+  }
+
+  /* Outline Button */
+  .btn-outline {
+    @apply px-8 py-3 border-2 border-accent-neon 
+           text-accent-neon font-bold rounded-full 
+           transition-all duration-300 
+           hover:bg-accent-neon hover:text-black 
+           active:scale-95;
+  }
+
+  /* Neon Text */
+  .text-glow {
+    @apply text-accent-neon;
+  }
+
+  .text-glow:hover {
+    filter: drop-shadow(0 0 10px rgba(57, 255, 20, 0.5));
+  }
+
+  /* Navbar Links */
+  .nav-link {
+    @apply text-gray-400 hover:text-accent-neon 
+           transition-colors duration-300;
+  }
+}
+
+/* ================= CUSTOM SCROLLBAR ================= */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #39FF14;
+}
+
+/* ================= SCROLL REVEAL ================= */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
